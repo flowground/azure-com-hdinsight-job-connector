@@ -1,0 +1,23 @@
+{
+    "type": "object",
+    "properties": {
+        "showall": {
+            "required": true,
+            "type": "string",
+            "enum": [
+                "true"
+            ]
+        },
+        "fields": {
+            "required": true,
+            "type": "string",
+            "enum": [
+                "*"
+            ]
+        },
+        "user_name": {
+            "required": true,
+            "type": "string"
+        }
+    }
+}

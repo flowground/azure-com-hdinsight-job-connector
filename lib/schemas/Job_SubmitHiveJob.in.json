@@ -1,0 +1,13 @@
+{
+    "type": "object",
+    "properties": {
+        "requestBody": {
+            "format": "file",
+            "type": "object"
+        },
+        "user_name": {
+            "required": true,
+            "type": "string"
+        }
+    }
+}

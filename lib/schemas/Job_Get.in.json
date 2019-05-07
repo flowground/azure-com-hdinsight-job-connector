@@ -1,0 +1,20 @@
+{
+    "type": "object",
+    "properties": {
+        "jobId": {
+            "required": true,
+            "type": "string"
+        },
+        "fields": {
+            "required": true,
+            "type": "string",
+            "enum": [
+                "*"
+            ]
+        },
+        "user_name": {
+            "required": true,
+            "type": "string"
+        }
+    }
+}

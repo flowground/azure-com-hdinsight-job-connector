@@ -1,0 +1,221 @@
+{
+    "title": "HDInsightJobManagementClient",
+    "description": "The HDInsight Job Client.",
+    "docsUrl": "",
+    "url": "https://api.apis.guru/v2/specs/azure.com/hdinsight-job/2018-11-01-preview/swagger.json",
+    "envVars": {
+        "OAUTH_CLIENT_ID": {
+            "description": "OAuth Client ID"
+        },
+        "OAUTH_CLIENT_SECRET": {
+            "description": "OAuth Client Secret"
+        }
+    },
+    "credentials": {
+        "fields": {
+            "server": {
+                "label": "Server",
+                "viewClass": "SelectView",
+                "model": [
+                    "https://azure.local/",
+                    "{clusterDnsName}",
+                    "--- Custom URL"
+                ],
+                "required": true
+            },
+            "otherServer": {
+                "label": "Custom Server URL",
+                "viewClass": "TextFieldView"
+            },
+            "azure_auth": {
+                "label": "Azure Active Directory OAuth2 Flow",
+                "viewClass": "OAuthFieldView"
+            }
+        },
+        "oauth2": {
+            "client_id": "{{OAUTH_CLIENT_ID}}",
+            "client_secret": "{{OAUTH_CLIENT_SECRET}}",
+            "auth_uri": "https://login.microsoftonline.com/common/oauth2/authorize"
+        }
+    },
+    "triggers": {
+        "startFlow": {
+            "main": "./lib/triggers/startFlow.js",
+            "type": "polling",
+            "title": "Start Flow",
+            "fields": {}
+        }
+    },
+    "actions": {
+        "Job_SubmitHiveJob": {
+            "main": "./lib/actions/Job_SubmitHiveJob.js",
+            "title": "Submits a Hive job to an HDInsight cluster.",
+            "description": "Submits a Hive job to an HDInsight cluster.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/Job_SubmitHiveJob.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "Job_List": {
+            "main": "./lib/actions/Job_List.js",
+            "title": "Gets the list of jobs from the specified HDInsight cluster.",
+            "description": "Gets the list of jobs from the specified HDInsight cluster.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/Job_List.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "Job_Kill": {
+            "main": "./lib/actions/Job_Kill.js",
+            "title": "Initiates cancel on given running job in the specified HDInsight.",
+            "description": "Initiates cancel on given running job in the specified HDInsight.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/Job_Kill.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "Job_Get": {
+            "main": "./lib/actions/Job_Get.js",
+            "title": "Gets job details from the specified HDInsight cluster.",
+            "description": "Gets job details from the specified HDInsight cluster.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/Job_Get.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "Job_ListAfterJobId": {
+            "main": "./lib/actions/Job_ListAfterJobId.js",
+            "title": "Gets numrecords Of Jobs after jobid from the specified HDInsight cluster.",
+            "description": "Gets numrecords Of Jobs after jobid from the specified HDInsight cluster.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/Job_ListAfterJobId.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "Job_SubmitMapReduceJob": {
+            "main": "./lib/actions/Job_SubmitMapReduceJob.js",
+            "title": "Submits a MapReduce job to an HDInsight cluster.",
+            "description": "Submits a MapReduce job to an HDInsight cluster.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/Job_SubmitMapReduceJob.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "Job_SubmitMapReduceStreamingJob": {
+            "main": "./lib/actions/Job_SubmitMapReduceStreamingJob.js",
+            "title": "Submits a MapReduce streaming job to an HDInsight cluster.",
+            "description": "Submits a MapReduce streaming job to an HDInsight cluster.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/Job_SubmitMapReduceStreamingJob.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "Job_SubmitPigJob": {
+            "main": "./lib/actions/Job_SubmitPigJob.js",
+            "title": "Submits a Pig job to an HDInsight cluster.",
+            "description": "Submits a Pig job to an HDInsight cluster.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/Job_SubmitPigJob.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "Job_SubmitSqoopJob": {
+            "main": "./lib/actions/Job_SubmitSqoopJob.js",
+            "title": "Submits a Sqoop job to an HDInsight cluster.",
+            "description": "Submits a Sqoop job to an HDInsight cluster.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/Job_SubmitSqoopJob.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "Job_GetAppState": {
+            "main": "./lib/actions/Job_GetAppState.js",
+            "title": "Gets application state from the specified HDInsight cluster.",
+            "description": "Gets application state from the specified HDInsight cluster.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/Job_GetAppState.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        }
+    }
+}

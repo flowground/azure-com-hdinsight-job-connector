@@ -1,0 +1,33 @@
+{
+    "type": "object",
+    "properties": {
+        "jobid": {
+            "required": false,
+            "type": "string"
+        },
+        "numrecords": {
+            "required": false,
+            "type": "integer",
+            "format": "int32",
+            "minimum": 1
+        },
+        "showall": {
+            "required": true,
+            "type": "string",
+            "enum": [
+                "true"
+            ]
+        },
+        "fields": {
+            "required": true,
+            "type": "string",
+            "enum": [
+                "*"
+            ]
+        },
+        "user_name": {
+            "required": true,
+            "type": "string"
+        }
+    }
+}
